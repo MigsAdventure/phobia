@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Entity, Scene } from 'aframe-react';
 import { connect } from 'react-redux';
+require('aframe-video-controls');
 
 @connect()
 export default class Scene1 extends Component {
@@ -28,12 +29,16 @@ export default class Scene1 extends Component {
     let { speed, clarity, filler, umcounter, show } = this.state
     let stats;
     if(show) {
-      stats = <a-box color='#fff' opacity='0.5' height='4' width='4' position='0 0 -4.5'>
-        <Entity text={{text:`Speed: ${speed}`, size:'0.15'}} material={{color:'black', letterSpacing: '2px'}} position="-1.5 -0.8 1"/>
-        <Entity text={{text:`Clarity: ${clarity}`, size:'0.15'}} material={{color:'black'}} position="-1.5 -0.2 1"/>
-        <Entity text={{text:`Filler Words: ${filler}`, size:'0.15'}} material={{color:'black'}} position="-1.5 0.4 1" />
-        <Entity text={{text:`Um Counter: ${umcounter}`, size:'0.15'}} material={{color:'black'}} position="-1.5 1 1"/>
-      </a-box>
+      // document.getElementById('video').pause();
+      stats =
+      // <Entity camera near>
+        <a-box color='#000' opacity='0.2' height='12' width='15' position='-3 -2 -4' rotation="-30 35 0">
+          <Entity text={{text:`Speed: ${speed}`, size:'0.15'}} material={{color:'black', letterSpacing: '2px'}} position="-1.5 -0.8 1"/>
+          <Entity text={{text:`Clarity: ${clarity}`, size:'0.15'}} material={{color:'black'}} position="-1.5 -0.2 1"/>
+          <Entity text={{text:`Filler Words: ${filler}`, size:'0.15'}} material={{color:'black'}} position="-1.5 0.4 1" />
+          <Entity text={{text:`Um Counter: ${umcounter}`, size:'0.15'}} material={{color:'black'}} position="-1.5 1 1"/>
+        </a-box>
+      // </Entity>
     }
     return (
       <div>
@@ -51,18 +56,30 @@ export default class Scene1 extends Component {
           /> */}
 
           {/* Video */}
-          <a-videosphere id='video' src="./demo_360.mp4" autoplay='true' crossOrigin></a-videosphere>
+
+          <a-assets>
+            <video id="video" src="./assets/demo_360.mp4"
+              autoplay='false' loop='false' crossorigin></video>
+          </a-assets>
+          <a-videosphere  src="#video"></a-videosphere>
+
+
+          {/* <img id="video-pause-image" src="./assets/psyduck.png" /> */}
+          {/* <Entity video-controls={{src: '#video'}}></Entity> */}
           {/* <a-ring color='teal' radius-inner='1' radius-outer='2' position='0 0 -5' opacity='0.9' rotation='-90 0 0'>
           </a-ring> */}
           {stats}
-          <a-sphere color='#000' opacity='0.5' radius='1.5' position='0 3.5 -1.5' onClick={this.getMenu.bind(this)}>
+          {/* <a-sphere color='#000' opacity='0.5' radius='1.5' position='0 3.5 -1.5' onClick={this.getMenu.bind(this)}>
             <Entity text={{text:'Done'}} material={{color:'blue'}} position='-0.7 -1 0' rotation={[90, 0, 0]}></Entity>
-          </a-sphere>
-          <Entity position="0 0 -1">
-            <Entity camera look-controls>
+          </a-sphere> */}
+          <Entity camera look-controls near >
+            <a-image src='./assets/psyduck.png' position="5 4.5 -6.5" onClick={this.getMenu.bind(this)}></a-image>
+            {/* <a-image src='./assets/'></a-image> */}
+          </Entity>
+          <Entity position="0 0 0">
+            <Entity camera look-controls >
               <a-cursor
-                cursor="fuse: true; fuseTimeout: 1000"
-
+                cursor="fuse: false; fuseTimeout: 1000"
                 geometry="primitive: ring"
                 material="color: red; shader: flat"
                 animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150">

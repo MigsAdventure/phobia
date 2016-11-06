@@ -34,7 +34,7 @@ export default class VRScene extends Component {
       <Scene>
         {/* CURSOR */}
         {/* <a-sky color="#6EBAA7"></a-sky> */}
-        <a-sky src="3dimage_360.jpeg" rotation="0 -130 0"></a-sky>
+        <a-sky src="./assets/3dimage_360.jpeg" rotation="0 -130 0"></a-sky>
         <Entity camera look-controls >
           <a-cursor
             cursor="fuse: true; fuseTimeout: 1000"
