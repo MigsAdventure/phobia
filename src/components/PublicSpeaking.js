@@ -38,7 +38,7 @@ export default class PublicSpeaking extends Component {
       />
 
       <a-image
-      src="./assets/public-speaking-icon-white.svg"
+      src="./assets/meeting.png"
       width="5"
       height="2.5"
       position="-7 -1 -6"
@@ -46,7 +46,7 @@ export default class PublicSpeaking extends Component {
       onClick={() => browserHistory.push('/meetingroom')}
       />
       <a-image
-      src="./assets/claustrophobia-icon.svg"
+      src="./assets/classroom.png"
       width="5"
       height="2.5"
       position="0 -1 -6"
@@ -54,16 +54,13 @@ export default class PublicSpeaking extends Component {
       onClick={() => browserHistory.push('/meetingroom')}
       />
       <a-image
-      src="./assets/heights-icon.svg"
+      src="./assets/auditorium.png"
       width="5"
       height="2.5"
       position="7 -1 -6"
       rotation='0 -30 0'
       onClick={() => browserHistory.push('/meetingroom')}
       />
-
-
-
 
       <a-assets>
       <video id="video" src="./assets/beach_360.mp4"

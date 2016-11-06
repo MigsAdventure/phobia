@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 
 
 @connect()
-export default class VRScene extends Component {
+export default class MainMenu extends Component {
   constructor(){
     super();
     this.state = {
@@ -58,7 +58,7 @@ export default class VRScene extends Component {
         />
 
         <a-image
-          src="./assets/public-speaking-icon-white.svg"
+          src="./assets/public_speaking.png"
           width="5"
           height="2.5"
           position="-5 1 -6"
@@ -66,7 +66,7 @@ export default class VRScene extends Component {
           onClick={() => browserHistory.push('/publicspeaking')}
         />
         <a-image
-          src="./assets/claustrophobia-icon.svg"
+          src="./assets/claustrophobia.png"
           width="5"
           height="2.5"
           position="4 1 -6"
@@ -74,7 +74,7 @@ export default class VRScene extends Component {
           onClick={() => browserHistory.push('/claustrophobia')}
         />
         <a-image
-          src="./assets/heights-icon.svg"
+          src="./assets/heights.png"
           width="5"
           height="2.5"
           position="-5 -3 -6"
@@ -82,7 +82,7 @@ export default class VRScene extends Component {
           onClick={() => browserHistory.push('/heights')}
         />
         <a-image
-          src="./assets/insects-icon.svg"
+          src="./assets/insects.png"
           width="5"
           height="2.5"
           position=" 4 -3 -6"
@@ -92,7 +92,7 @@ export default class VRScene extends Component {
 
 
         <a-assets>
-          <video id="video" src="./assets/beach_360.mp4"
+          <video id="video" src="./assets/Maui_1080p_360.mp4"
             autoplay='false' loop='false' crossorigin></video>
         </a-assets>
         <a-videosphere  src="#video"></a-videosphere>
