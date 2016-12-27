@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VRScene from './VRScene';
+import VRScene from './MainMenu';
 import Layout from './Layout';
 import { connect } from 'react-redux';
 
@@ -11,7 +11,7 @@ export default class Root extends Component {
     const { vrmode } = this.props;
 
     if (vrmode) {
-      return <VRScene />;
+      return <MainMenu />;
     } else {
       return <Layout />;
     }

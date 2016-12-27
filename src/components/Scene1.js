@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Entity, Scene } from 'aframe-react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 require('aframe-video-controls');
 
 @connect()
@@ -22,7 +23,7 @@ export default class Scene1 extends Component {
     this.setState({
       show: !this.state.show
     });
-
+    // browserHistory.push('')
   }
 
   render() {
@@ -73,7 +74,8 @@ export default class Scene1 extends Component {
             <Entity text={{text:'Done'}} material={{color:'blue'}} position='-0.7 -1 0' rotation={[90, 0, 0]}></Entity>
           </a-sphere> */}
           <Entity camera look-controls near >
-            <a-image src='./assets/psyduck.png' position="5 4.5 -6.5" onClick={this.getMenu.bind(this)}></a-image>
+            <a-image src='./assets/psyduck.png' position="5 4.5 -6.5" onClick={() => browserHistory.push('/pause')}></a-image>
+            {/* <a-image src='./assets/psyduck.png' position="5 4.5 -6.5" onClick={this.getMenu.bind(this)}></a-image> */}
             {/* <a-image src='./assets/'></a-image> */}
           </Entity>
           <Entity position="0 0 0">
